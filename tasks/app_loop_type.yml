@@ -8,6 +8,6 @@
 
 - name: fill defaults
   vars:
-    defaults: "{{_reg_include_vars.ansible_facts.app_defaults.app_defaults|default({})}}"
+    defaults: "{{_reg_include_vars.ansible_facts.app_defaults.app_defaults|default({})|retemplate(vars)}}"
   set_fact:
     apps: "{{ {app.key: {app_type: defaults}}|combine(apps, recursive=True)}}"

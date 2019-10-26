@@ -4,4 +4,3 @@
   loop_control:
     loop_var: app_type
   when: app.value[app_type]
-

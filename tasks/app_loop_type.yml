@@ -1,9 +1,10 @@
 - name: deb defaults (never fail)
   include_vars:
-    file: "../roles/exphost.{{app_type}}/defaults/main.yml"
+    file: "../roles/{{app.value[app_type]['type']}}/defaults/main.yml"
     name: app_defaults
   failed_when: False
   register: _reg_include_vars
+  when: app.value[app_type]['type']|default(False)
   #ignore_errors: True
 
 - name: fill defaults

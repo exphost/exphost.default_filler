@@ -1,6 +1,6 @@
 - name: deb defaults (never fail)
   include_vars:
-    file: "../roles/{{app.value[app_type]['type']}}/defaults/main.yml"
+    file: "{{FABSIBLE_CWD|default('..')}}/roles/{{app.value[app_type]['type']}}/defaults/main.yml"
     name: app_defaults
   failed_when: False
   register: _reg_include_vars
